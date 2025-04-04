@@ -1,13 +1,48 @@
-import { render } from '@testing-library/react-native'
+import { render , fireEvent } from '@testing-library/react-native'
 import Footer from '../Components/Footer'
 
+
+
+const mockNavigate = jest.fn();
+jest.mock('@react-navigation/native', () => ({
+  ...jest.requireActual('@react-navigation/native'),
+  useNavigation: () => ({
+    navigate: mockNavigate,
+  }),
+}));
 describe('Footer component' , ()=>{
-    it('renders the home logo', ()=>{
-        const { getByTestId } = render(<Footer />)
-        expect(getByTestId('Home')).toBeTruthy()
-        expect(getByTestId('Shorts')).toBeTruthy()
-        expect(getByTestId('Add')).toBeTruthy()
-        expect(getByTestId('Subscription')).toBeTruthy()
-        expect(getByTestId('Profile')).toBeTruthy()
-    })
+    test('renders the Home button', () => {
+        const { getByTestId } = render(<Footer />);
+        expect(getByTestId('Home')).toBeTruthy();
+        const homeButton = getByTestId('Home');
+        fireEvent.press(homeButton);
+      });
+    
+      test('renders the Shorts button', () => {
+        const { getByTestId } = render(<Footer />);
+        expect(getByTestId('Shorts')).toBeTruthy();
+        const shortsButton = getByTestId('Shorts');
+        fireEvent.press(shortsButton);
+      });
+    
+      test('renders the Add button', () => {
+        const { getByTestId } = render(<Footer />);
+        expect(getByTestId('Add')).toBeTruthy();
+        const addButton = getByTestId('Add');
+        fireEvent.press(addButton);
+      });
+    
+      test('renders the Subscription button', () => {
+        const { getByTestId } = render(<Footer />);
+        expect(getByTestId('Subscription')).toBeTruthy();
+        const subscriptionButton = getByTestId('Subscription');
+        fireEvent.press(subscriptionButton);
+      });
+    
+      test('renders the Profile button', () => {
+        const { getByTestId } = render(<Footer />);
+        expect(getByTestId('Profile')).toBeTruthy();
+        const profileButton = getByTestId('Profile');
+        fireEvent.press(profileButton);
+      });
 })

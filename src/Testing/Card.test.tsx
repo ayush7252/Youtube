@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react-native';
+import { render, fireEvent } from '@testing-library/react-native';
 import Card from '../Components/Card'; // Adjust the path as needed
 
 describe('Card Component', () => {
@@ -42,6 +42,12 @@ describe('Card Component', () => {
     const touchable = getByTestId('more-options-button');
     expect(touchable).toBeTruthy();
     
+  });
+
+  it('should call function when More Options button is pressed', () => {
+    const { getByTestId } = render(<Card item={mockItem} />);
+    const moreOptionsButton = getByTestId('more-options-button');
+    fireEvent.press(moreOptionsButton);
   });
 
 

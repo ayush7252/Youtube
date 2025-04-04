@@ -1,14 +1,42 @@
-import { Text, StyleSheet, View } from 'react-native'
-import React, { Component } from 'react'
+import React from 'react'
+import {NavigationContainer} from '@react-navigation/native'
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import LandingScreen from '../Screens/LandingScreen'
+import SubscriptionScreen from '../Screens/SubscriptionScreen'
+import Footer from '../Components/Footer'
 
-export default class MainNavigation extends Component {
-  render() {
-    return (
-      <View>
-        <Text>MainNavigation</Text>
-      </View>
-    )
-  }
+
+const Stack = createNativeStackNavigator();
+
+const MainNavigation = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen 
+        
+          name="Home" 
+          component={LandingScreen }
+          options={{ 
+            headerShown: false, 
+          }}
+        />
+        <Stack.Screen 
+          name="Subscription" 
+          component={SubscriptionScreen}
+          options={{ 
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen 
+          name="Footer" 
+          component={Footer}
+          options={{ 
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
 
-const styles = StyleSheet.create({})
+export default MainNavigation

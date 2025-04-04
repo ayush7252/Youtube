@@ -25,7 +25,7 @@ export default class Card extends Component {
             />
           </View>
           <View style={styles.middle}>
-            <Text  style={styles.title} numberOfLines={2}>{item.title}</Text>
+            <Text style={styles.title} numberOfLines={2}>{item.title}</Text>
             <Text style={styles.profileName}> by {item['Profile-Name']}{' .'} <Text style={styles.date}>{item.Date}</Text></Text>
           </View>
           <View style={styles.right}>
@@ -41,11 +41,9 @@ export default class Card extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        height: 260,
-        width: '94%',
-        backgroundColor: '#1e1e1e',
-        margin: 10,
-        borderRadius: 10,
+        height: 230,
+        width: '98%',
+        marginBlock: 10,
         overflow: 'hidden'
     },
     imgView: {
@@ -53,7 +51,8 @@ const styles = StyleSheet.create({
     },
     image: {
       width: '100%',
-      height: '100%'
+      height: '100%',
+      resizeMode: 'center',
     },
     contentView: {
       flexDirection: 'row',
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       paddingHorizontal: 10,
       height: '30%',
-      backgroundColor: '#2a2a2a'
+      // backgroundColor: '#2a2a2a'
     },
     left: {
       height: 50,

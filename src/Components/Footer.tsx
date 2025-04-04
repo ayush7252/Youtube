@@ -1,60 +1,65 @@
 import { Text, StyleSheet, View, TouchableOpacity } from 'react-native';
-import React, { Component } from 'react';
+import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native';
 
-export default class Footer extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <TouchableOpacity 
-          style={styles.tab} 
-          testID='Home'
-          activeOpacity={0.7}
-        >
-          <Icon name='home' size={26} color={'#fff'}/>
-          <Text style={styles.tabLabel}>Home</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity 
-          style={styles.tab} 
-          testID='Shorts'
-          activeOpacity={0.7}
-        >
-          <Icon name='slow-motion-video' size={26} color={'#fff'}/>
-          <Text style={styles.tabLabel}>Shorts</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity 
-          style={styles.centerTab} 
-          testID='Add'
-          activeOpacity={0.7}
-        >
-          <View style={styles.addButton}>
-            <Icon name='add' size={30} color={'#fff'}/>
-          </View>
-        </TouchableOpacity>
-        
-        <TouchableOpacity 
-          style={styles.tab} 
-          testID='Subscription'
-          activeOpacity={0.7}
-        >
-          <Icon name='subscriptions' size={26} color={'#fff'}/>
-          <Text style={styles.tabLabel}>Subscriptions</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity 
-          style={styles.tab} 
-          testID='Profile'
-          activeOpacity={0.7}
-        >
-          <Icon name='account-circle' size={26} color={'#fff'}/>
-          <Text style={styles.tabLabel}>You</Text>
-        </TouchableOpacity>
-      </View>
-    );
+const Footer = () => {
+  const navigation = useNavigation(); 
+  function handleNavigateToHome(){
+    console.log("Home Button Clicked")
   }
-}
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity 
+        style={styles.tab} 
+        testID='Home'
+        activeOpacity={0.7}
+        onPress={() => navigation.navigate('Home')}
+      >
+        <Icon name='home' size={26} color={'#fff'}/>
+        <Text style={styles.tabLabel}>Home</Text>
+      </TouchableOpacity>
+      
+      <TouchableOpacity 
+        style={styles.tab} 
+        testID='Shorts'
+        activeOpacity={0.7}
+      >
+        <Icon name='slow-motion-video' size={26} color={'#fff'}/>
+        <Text style={styles.tabLabel}>Shorts</Text>
+      </TouchableOpacity>
+      
+      <TouchableOpacity 
+        style={styles.centerTab} 
+        testID='Add'
+        activeOpacity={0.7}
+      >
+        <View style={styles.addButton}>
+          <Icon name='add' size={30} color={'#fff'}/>
+        </View>
+      </TouchableOpacity>
+      
+      <TouchableOpacity 
+        style={styles.tab} 
+        testID='Subscription'
+        activeOpacity={0.7}
+        onPress={() => navigation.navigate('Subscription')}
+      >
+        <Icon name='subscriptions' size={26} color={'#fff'}/>
+        <Text style={styles.tabLabel}>Subscriptions</Text>
+      </TouchableOpacity>
+      
+      <TouchableOpacity 
+        style={styles.tab} 
+        testID='Profile'
+        activeOpacity={0.7}
+      >
+        <Icon name='account-circle' size={26} color={'#fff'}/>
+        <Text style={styles.tabLabel}>You</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -95,3 +100,5 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
+
+export default Footer;

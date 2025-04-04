@@ -1,0 +1,6 @@
+projectKey=Youtube
+serverUrl=http://localhost:9000
+serverVersion=25.3.0.104237
+dashboardUrl=http://localhost:9000/dashboard?id=Youtube
+ceTaskId=8bc7a4fa-1d1a-4f7c-bde7-5b3d74314a1e
+ceTaskUrl=http://localhost:9000/api/ce/task?id=8bc7a4fa-1d1a-4f7c-bde7-5b3d74314a1e
